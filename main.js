@@ -34,7 +34,7 @@ var getScriptPromisify = (src) => {
       await getScriptPromisify('https://cdn.bootcdn.net/ajax/libs/echarts/5.0.0/echarts.min.js')
 
       const chart = echarts.init(this._root)
-const option = {
+      const option = {
   series: [
     {
       type: 'gauge',
@@ -87,13 +87,14 @@ const option = {
     }
   ]
 };
+
 setInterval(function () {
-  myChart.setOption({
+  myChart.setOption<echarts.EChartsOption>({
     series: [
       {
         data: [
           {
-            value: 50
+            value: 80
           }
         ]
       }
@@ -104,5 +105,5 @@ setInterval(function () {
     }
   }
 
-  customElements.define('com-sap-sample-echarts-prepared', SamplePrepared)
+  customElements.define('com-sap-sample-echarts-prepared', GaugeRGB)
 })()
